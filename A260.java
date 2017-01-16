@@ -29,6 +29,7 @@ public class A260 {
         // Pass 2 :
         int[] rets = {0, 0}; // this array stores the two numbers we will return
         for (int num : nums)
+//        	rets[!(num & diff)] ^= num; // for c++, java do not support this...
         {
             if ((num & diff) == 0) // the bit is not set
             {
