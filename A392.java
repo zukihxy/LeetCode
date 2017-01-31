@@ -3,18 +3,31 @@ package LeetCode;
 public class A392 {
 	// subsequence here do not have to be continuous!
     public boolean isSubsequence(String s, String t) {
-        if (s.length() == 0) return true;
-        int indexS = 0, indexT = 0;
-        while (indexT < t.length()) {
-            if (t.charAt(indexT) == s.charAt(indexS)) {
-                indexS++;
-                if (indexS == s.length()) return true;
-            }
-            indexT++;
-        }
-        return false;
+//        if (s.length() == 0) return true;
+//        int indexS = 0, indexT = 0;
+//        while (indexT < t.length()) {
+//            if (t.charAt(indexT) == s.charAt(indexS)) {
+//                indexS++;
+//                if (indexS == s.length()) return true;
+//            }
+//            indexT++;
+//        }
+//        return false;
+   
+    
+    // better solution
+    if(t.length() < s.length()) return false;
+    int prev = 0;
+    for(int i = 0; i < s.length();i++)
+    {
+        char tempChar = s.charAt(i);
+        prev = t.indexOf(tempChar,prev);
+        if(prev == -1) return false;
+        prev++;
     }
     
+    return true;
+    } 
     /* good idea about follow up
      * public:
     vector<bool> isSubsequence(vector<string> ss, string t) {
