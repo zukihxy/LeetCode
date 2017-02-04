@@ -20,6 +20,7 @@ public class A416 {
         // dp init
         dp[0] = true;
         // dp transition
+        // For each array element,traverse the array and set sol [j] to be true if sol [j – value of array] is true
         for (int i = 1; i <= nums.length; i++) {
             for (int j = volumn; j >= nums[i-1]; j--) {
                 dp[j] = dp[j] || dp[j - nums[i-1]];
